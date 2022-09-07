@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>http services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js></script>
+    <script>
+      var app=angular.module('serviceApp',[]);
+      app.controller('serviceCtrl', function($scope,$http) {
+        $http({
+          method:'GET',
+          url: '/sample.html'
+        }).then(function successCallback(response){
+          console.log(response)
+          $scope.myWelcome=response.data;
+        },function errorCallback(response){
+
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <div ng-app="serviceApp" ng-controller="serviceCtrl">
+      <h2 style="color:red;">Example of $http Service</h2>
+
+      <p>Hi, Guest</p>
+      <h1>{{myWelcome}}</h1>
+      <p>The $http service requests a page on the server, and the response is set as
+        the value of the "myWelcome" variable.</p>
+    </div>
+  </body>
+</html>

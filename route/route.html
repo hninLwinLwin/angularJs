@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+    src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js></script>
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+
+<body ng-app="myApp">
+  <p><a href="#/!">Main</a></p>
+  <a href="#!reactjs">React JS</a>
+  <a href="#!nodejs">Node JS</a>
+  <p>Click on the links</p>
+  <div ng-view></div>
+
+  <script>
+    var app=angular.module("myApp",["ngRoute"]);
+    app.config(function($routeProvider){
+      $routeProvider
+        .when("/",{
+          templateUrl: "main.html",
+          controller:"mainCtrl"
+        })
+        .when("/reactjs",{
+          templateUrl: "reactjs.html",
+          controller:"reactjsCtrl"
+        })
+        .when("/nodejs",{
+          templateUrl: "nodejs.html",
+          controller:"nodejsCtrl"
+        })
+    });
+     app.controller('mainCtrl', function ($scope) {
+        $scope.msg = "Main !!!"
+      })
+    app.controller('reactjsCtrl',function($scope){
+      $scope.msg="React JS!!!"
+    })
+    app.controller('nodejsCtrl',function($scope){
+      $scope.msg ="Node JS!!!"
+    })
+  </script>
+</body>
+
+</html>

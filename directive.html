@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Angularjs Directive</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js></script>
+    <body ng-app="bindExample">
+        <div ng-app="" ng-init="Mobile=''">
+            <label>
+                Brand: <input type="text" ng-model="Mobile">
+            </label>
+            <p>Your Mobile Brand is: {{Mobile}}</p>
+        </div>
+        <script>
+            angular.module('bindExample',[])
+                .controller('ExampleController',['$scope',function($scope){
+                    $scope.name='';
+                }]);
+        </script>
+        <div ng-controller="ExampleController">
+            <label>
+                Brand: <input type="text" ng-model="name">
+            </label>
+            <p>Your Mobile Brand is: <b><span ng-bind="name"></span></b></p>
+        </div>
+
+        <div np-app="" ng-init = "names=[
+        {name:'Mary', country:'Denmark'},
+        {name:'John', country:'Malaysia'},
+        {name:'Kew',country:'india'}]">
+            <p>Looping with objects using<b>ng-repeat</b>directive:</p>
+            <ul>
+                <li ng-repeat="x in names">
+                    {{x.name+ ',' +x.country}}
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script
+      src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js></script>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      Convert the number 200, using a custom made service.
+      <h1>{{200|myFormat}}</h1>
+    </div>
+    <script>
+      var app= angular.module('myApp',[]);
+      app.service('hexo',function(){
+        this.myFunc = function(x) {
+          return x.toString(16);
+        }
+      });
+      app.filter('myFormat',['hexo',function(hexo){
+        return function(x){
+          return hexo.myFunc(x);
+        };
+      }]);
+    </script>
+  </body>
+</html>

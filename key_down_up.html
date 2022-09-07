@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Key Down</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+    src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js></script>
+</head>
+
+<body ng-app>
+  <h1 style="color: red;">Example for Keydown Event</h1>
+  <input ng-keydown="count=count+1" ng-init="count=0"/>
+  <h1>{{count}}</h1>
+
+  <p>This example will increase the value of the variable "count"
+
+    every time a key is pressed in the input field.</p>
+  <h1 style="color: red;">Example for KeyUp Event</h1>
+  <input ng-keyup="countKeyup=countKeyup+1" ng-init="countKeyup=0" />
+  <h1>{{countKeyup}}</h1>
+
+  <p>This example will increase the value of the variable "count"
+
+    every time a key is release in the input field.</p>
+</body>
+
+</html>

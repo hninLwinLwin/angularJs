@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Filter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js></script>
+    <body>
+        <div ng-app="myApp" ng-controller="personCtrl">
+            <h2 style="color:red";>Uppercase & lwoercase</h2>
+            <p>My name is {{lastName|uppercase}}</p>
+            <p>My name is {{lastName|lowercase}}</p>
+        </div>
+
+        <script>
+            angular.module('myApp',[]).controller('personCtrl',function($scope){
+                $scope.firstName = "mmichal",
+                $scope.lastName="Jackson"
+            });
+        </script>
+    </body>
+</html>
